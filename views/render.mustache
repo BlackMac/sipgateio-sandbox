@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>sipgate.io output</title>
+        <style>
+            body {
+                font-family:Arial, Helvetica, Sans-Serif;
+            }
+        </style>
+        <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+    </head>
+    <body>
+        {{{html}}}
+        <script>
+            var bearer="{{{bearer}}}"
+            var sipgate = {
+                get: (url, callback) => {
+                    $.ajax("https://api.sipgate.com"+url, {
+                        type: "GET",
+                        headers: {  'Content-Type': 'application/json',
+                                    'Accept': 'application/json',
+                                    'Authorization': 'Bearer ' + bearer
+                        }
+                    }).done((res) => {
+                        callback(res);
+                    })
+                },
+
+                post: (url, data, callback) => {
+                    $.ajax("https://api.sipgate.com"+url, {
+                        type: "POST",
+                        headers: {  'Content-Type': 'application/json',
+                                    'Accept': 'application/json',
+                                    'Authorization': 'Bearer ' + bearer
+                        },
+                        data: JSON.stringify(data)
+                    }).done((res) => {
+                        callback(res);
+                    })
+                },
+
+                delete: (url, callback) => {
+                    $.ajax("https://api.sipgate.com"+url, {
+                        type: "DELETE",
+                        headers: {  'Content-Type': 'application/json',
+                                    'Accept': 'application/json',
+                                    'Authorization': 'Bearer ' + bearer
+                        }
+                    }).done((res) => {
+                        callback(res);
+                    })
+                },
+
+                put: (url, data, callback) => {
+                    $.ajax("https://api.sipgate.com"+url, {
+                        type: "PUT",
+                        headers: {  'Content-Type': 'application/json',
+                                    'Accept': 'application/json',
+                                    'Authorization': 'Bearer ' + bearer
+                        },
+                        data: JSON.stringify(data)
+                    }).done((res) => {
+                        callback(res);
+                    })
+                }
+            }
+        </script>
+        <script>
+            {{{script}}}
+        </script>
+    </body>
+</html>

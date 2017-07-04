@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link href="css/style.css" rel="stylesheet">-->
+        <style type="text/css" media="screen">
+    #editor-box { 
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width:600px;
+        bottom:0;
+    }
+
+    .editor {
+        height:290px;
+        width:100%;
+    }
+
+    #editor-js {
+        border-bottom:1px solid white;
+    }
+
+    iframe {
+        width: 100%;
+        height:600px;
+    }
+</style>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <body>
+                <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+        sipgate.io Playground
+        </a>
+    </div>
+      <!-- Single button -->
+      <form class="navbar-form navbar-right">
+      <div class="form-group">
+        <a href="/login" type="button" class="btn btn-default">
+            Logout
+        </a>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Examples <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="/template/get_groups">get groups</a></li>
+            <li><a href="/template/get_balance">get account balance</a></li>
+            <li><a href="/template/initiate_call">initiate call (click2dial)</a></li>
+            <li><a href="/template/call_v2">RTCM (API v2)</a></li>
+            <li><a href="/template/webphone">Softphone</a></li>
+        </ul>
+        </div>
+        
+    </form>
+  </div>
+</nav>

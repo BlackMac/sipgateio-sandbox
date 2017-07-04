@@ -1,0 +1,17 @@
+{{> header}}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 center">
+                    <button class="btn btn-default" id="login">sipgate.io login</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            $('#login').click(() => {
+                let url = "https://api.sipgate.com/v1/authorization/oauth/authorize?scope=all&response_type=code&client_id=OtL0MUtpf3&redirect_uri="+encodeURI('{{{redirect}}}')
+                document.location.href = url;
+            })
+        </script>
+    </body>
+</html>
+{{> footer}}

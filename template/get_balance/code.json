@@ -1,0 +1,7 @@
+{
+    "sampleName":"Get balance",
+    "sampleNameTranslations": {
+        "de": "Guthaben abfragen",
+        "en": "Get account balance"
+    }
+}
