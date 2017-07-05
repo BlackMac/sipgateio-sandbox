@@ -3,6 +3,7 @@ const homeController = require("./controllers/home"),
       staticController = require("./controllers/static"),
       saveController = require("./controllers/save"),
       templateController = require("./controllers/template"),
+      webhookController = require("./controllers/webhook"),
       showController = require("./controllers/show"),
       authMiddleware = require('./middleware/auth')
 
@@ -14,4 +15,5 @@ module.exports = (app) => {
     app.get('/show', showController.get)
     app.post('/save', saveController.update)
     app.get('/template/:filename', templateController.get)
+    app.post('/webhooks', webhookController.get)
 }

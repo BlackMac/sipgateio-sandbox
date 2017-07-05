@@ -14,6 +14,9 @@ const express = require('express'),
       bodyParser = require('body-parser')
 
 const app = express()
+const server = require('http').Server(app)
+require('./models/push').serve(server)
+
 app.use(sandboxMiddleware)
 app.use(cookieSession({
     name: 'session',
@@ -26,8 +29,9 @@ app.engine('mustache', mustacheExpress())
 app.set('view engine', 'mustache')
 app.disable('view cache')
 
+
 router(app)
 
-app.listen(4000, function () {
+server.listen(4000, function () {
     console.log('sndbx.net listening on port 4000!')
 })

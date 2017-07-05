@@ -1,17 +1,20 @@
 {{> header}}
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12 center">
-                    <button class="btn btn-default" id="login">sipgate.io login</button>
-                </div>
-            </div>
-        </div>
-        <script>
-            $('#login').click(() => {
-                let url = "https://api.sipgate.com/v1/authorization/oauth/authorize?scope=all&response_type=code&client_id=OtL0MUtpf3&redirect_uri="+encodeURI('{{{redirect}}}')
-                document.location.href = url;
-            })
-        </script>
-    </body>
-</html>
+
+<div class="container">
+    <div class="jumbotron">
+    <div class="container">
+    <h1>connect to sipgate</h1>
+    <p>We need a sipgate account to work with. Please be aware, that you are working on a live account inside the playground.</p>
+    <p><div class="alert alert-danger" role="alert">All setting changes like updating your sipgate.io URLs will effect the account you connect.</div></p>
+    <p>You can <a href="https://www.sipgatebasic.de/" target="_blank">register a free sipgate basic account</a> to try most of the functions.</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button" id="login">connect to sipgate</a></p>
+    </div>
+</div>
+</div>
+<script>
+    $('#login').click(() => {
+        let url = "https://api.sipgate.com/v1/authorization/oauth/authorize?scope=all&response_type=code&client_id=OtL0MUtpf3&redirect_uri="+encodeURI('{{{redirect}}}')
+        document.location.href = url;
+    })
+</script>
 {{> footer}}
