@@ -1,13 +1,15 @@
-<h1>Call</h1>
-<p>
-    <label>Number (mine):
-    <br></label><input type="text" id="number_a_leg" />
-</p>
-<p>
-    <label>Number (remote):</label>
-    <br><input type="text" id="number_b_leg" />
-</p>
-<p>
-    <button onClick="dial()">Anrufen</button>
-</p>
-<div id="result"></div>
+<div class="container">
+    <h1>Call</h1>
+    <p>
+        <label>Your number:</label>
+        <br><input type="text" id="number_a_leg" />
+    </p>
+    <p>
+        <label>Number to dial:</label>
+        <br><input type="text" id="number_b_leg" />
+    </p>
+    <p>
+        <button onClick="dial()" class="btn btn-default">Dial</button>
+    </p>
+    <div id="result"></div>
+</div>

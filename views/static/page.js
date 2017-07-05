@@ -12,7 +12,7 @@ function update(mode, value) {
     if (mode === "html") sandboxCode.html = value;
     save = window.setTimeout(() => {
         $.post( "/save", sandboxCode, ( data ) => {
-            changeIndicator.style['color']="white";
+            changeIndicator.style['color']="transparent";
             document.getElementById('preview').contentWindow.location.reload();
         });
         save = null;
@@ -24,6 +24,18 @@ function setupEditor(id, mode, changeIndicator) {
     editor.setTheme("ace/theme/monokai");
     let session = editor.getSession();
     session.setMode("ace/mode/"+mode);
+    session.on("changeAnnotation", function() {
+        var annotations = session.getAnnotations()||[], i = len = annotations.length;
+        while (i--) {
+            if(/doctype first\. Expected/.test(annotations[i].text) ||
+            /Missing semicolon/.test(annotations[i].text)) {
+            annotations.splice(i, 1);
+            }
+        }
+        if(len>annotations.length) {
+            session.setAnnotations(annotations);
+        }
+    });
     session.on("changeAnnotation", (change) => {
         let annotations = editor.getSession().getAnnotations();
         let err = false;

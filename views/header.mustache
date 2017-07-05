@@ -6,28 +6,79 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link href="css/style.css" rel="stylesheet">-->
         <style type="text/css" media="screen">
-    #editor-box { 
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width:600px;
-        bottom:0;
-    }
+        body, html {
+            height:100%;
+        }
+        #editor-box { 
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width:600px;
+            bottom:0;
+        }
 
-    .editor {
-        height:290px;
-        width:100%;
-    }
+        nav {
+            margin:0 !important;
+        }
+        .editor {
+            height:50%;
+            width: 100%;
+        }
 
-    #editor-js {
-        border-bottom:1px solid white;
-    }
+        .ide {
+            margin:0;
+            display:block;
+            overflow:hidden;
+            height: calc(100% - 52px);
+        }
+        .ide-left {
+            width: 50%;
+            height:100%;
+            float:left;
+            position: relative;
+        }
 
-    iframe {
-        width: 100%;
-        height:600px;
-        border: 1px solid #eeeeee;
-    }
+        .ide-right {
+            width: 50%;
+            height:100%;
+            float:right;
+        }
+
+        .ide-top {
+            position:relative;
+        }
+
+        .ide-bottom {
+            position: relative;
+        }
+
+        #editor-js {
+            border-bottom:1px solid white;
+        }
+
+        iframe {
+            width: 100%;
+            height: calc(100% - 40px);
+            border: 1px solid #bbccdd;
+            border-width: 0 0 1px 0;
+        }
+
+        .panel-body {
+            padding: 0 !important;
+        }
+
+        .editor-label {
+            color:white;
+            position:absolute;
+            margin-top:-20px;
+            right:6px;
+            z-index:10000;
+            font-size: 10px;
+        }
+
+        .jumbotron {
+            margin-top:30px !important;
+        }
 </style>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -44,25 +95,36 @@
   <div class="container-fluid">
     <div class="navbar-header">
         <a class="navbar-brand" href="#">
-        sipgate.io Playground
+        sipgate.io Playground <span id="editor-js-change-indicator" style="color:white">&bull;</span>
         </a>
     </div>
       <!-- Single button -->
       <form class="navbar-form navbar-right">
-      <div class="form-group">
+      
+        <a href="https://developer.sipgate.io/" type="button" class="btn btn-default" target="blank">
+            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Documentation
+        </a>
         <a href="/login" type="button" class="btn btn-default">
             Logout
         </a>
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="form-group">
+        <button type="button" class="btn btn-default btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Examples <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-            <li><a href="/template/get_groups">get groups</a></li>
-            <li><a href="/template/get_balance">get account balance</a></li>
-            <li><a href="/template/initiate_call">initiate call (click2dial)</a></li>
-            <li><a href="/template/call_v2">RTCM (API v2)</a></li>
-            <li><a href="/template/webphone">Softphone</a></li>
-            <li><a href="/template/push">sipgate.io Webhook push</a></li>
+            <li class="dropdown-header">REST - account</li>
+                <li><a href="/template/tutorial">show balance</a></li>
+                <li><a href="/template/get_groups">list groups</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">REST - calls</li>
+                <li><a href="/template/initiate_call">initiate call (click2dial)</a></li>
+                <li><a href="/template/call_v2">realtime call manipulation</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Javascript - Webphone</li>
+                <li><a href="/template/webphone">Webphone</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Webhooks - push</li>
+                <li><a href="/template/push">sipgate.io Webhook push</a></li>
         </ul>
         </div>
         
