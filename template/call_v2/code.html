@@ -1,23 +1,36 @@
-<style>
-    .active {
-        background-color:green;
-    }
-</style>
-<h1>Call</h1>
-<p>
-    <label>Number (mine):
-    <br></label><input type="text" id="number_a_leg" value="+4915127526459" />
-</p>
-<p>
-    <label>Number (remote):</label>
-    <br><input type="text" id="number_b_leg" value="+4921163555584" />
-</p>
-<p>
-    <button onClick="dial()">Call</button>
-</p>
-<p>
-    <button onClick="hangup(this)">Hangup</button>
-    <button onClick="mute(this)">Mute</button>
-    <button onClick="hold(this)">Hold</button>
-</p>
-<div id="result"></div>
+<div class="container">
+    <h1>RTCM</h1>
+        <div class="form-group">
+            <label>A-Number:</label>
+            <input type="text" class="form-control" id="number_a_leg" placeholder="+4912345678" />
+            <span class="help-block">The A number is the number that rings first. It sould be your number.</span>
+        </div>
+        <div class="form-group">
+            <label>B-Number:</label>
+            <br><input type="text" class="form-control" id="number_b_leg" placeholder="+4912345678" />
+            <span class="help-block">The B number is the number that gets called second. Usually the number of the person you want to call.</span>
+        </div>
+        <div class="form-group">
+            <button onClick="dial(this)" class="btn btn-primary">Call</button>
+        </div>
+        <div id="callactions" class="hidden">
+            <div class="form-group">
+                <button onClick="hangup(this)" class="btn btn-default">Hangup</button>
+                <button onClick="mute(this)" class="btn btn-default">Mute</button>
+                <button onClick="hold(this)" class="btn btn-default">Hold</button>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="+4912345678" id="transfernumber">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button">Transfer <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onClick="transfer(this, true)">Attended</a></li>
+                        <li><a href="#" onClick="transfer(this, false)">Unattended</a></li>
+                    </ul>
+                  </span>
+                </div>
+            </div>
+        </div>
+    <div id="result"></div>
+</div>
